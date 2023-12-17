@@ -1,0 +1,5 @@
+SETTING UP FIREBASE:
+1. Open browser, and go to https://console.firebase.google.com/
+2. Click on "Add project".
+3. Give your project a name, and Continue.
+4. Enable Google Analytics for this project, and Continue.
