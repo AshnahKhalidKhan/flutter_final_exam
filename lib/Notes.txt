@@ -23,7 +23,13 @@ SETTING UP FIREBASE:
             classpath "com.google.gms:google-services:4.4.0"
         }    
     }
-17. Now go to android > app > build.gradle. In this file, add this line id 'com.google.gms.google-services' here:
+17. Go back to browser, and open this link https://kotlinlang.org/docs/releases.html#release-details in another tab. Copy the latest version code of Kotlin on that website.
+18. Go back to your flutter project, and go to android > build.gradle. In this file, paste your Kotlin version here:
+    buildscript {
+        ext.kotlin_version = '<paste it here>'
+        //...  
+    }
+19. Now go to android > app > build.gradle. In this file, add this line id 'com.google.gms.google-services' here:
     plugins {
         //...
         id 'com.google.gms.google-services'
@@ -35,6 +41,20 @@ SETTING UP FIREBASE:
         implementation platform('com.google.firebase:firebase-bom:32.7.0')
         implementation 'com.google.firebase:firebase-analytics'
     }
-18. You will now get a pop up to sync classpaths/configurations using Java SDK. Click Sync.
-19. Go back to browser, click Next.
-20. Click Continue to console.
+20. You will now get a pop up to sync classpaths/configurations using Java SDK. Click Sync.
+21. Go back to browser, click Next.
+22. Click Continue to console.
+23. Go back to your flutter project, and open the terminal and write flutter pub add cloud_firestore > flutter pub add firebase_core.
+
+flutter pub add firebase_auth
+
+24. Go to your lib > main.dart.
+25. Add firebase_core import to your main.dart file using this line: import 'package:firebase_core/firebase_core.dart';
+26. Add these lines and "async" and "await" keywords in the void main() function:
+    void main() async 
+    {
+        WidgetsFlutterBinding.ensureInitialized();
+        await Firebase.initializeApp();
+        //...
+    }
+27. Open the terminal and write flutter run. You will get some error related to enabling multidex support for flutter on the terminal, so type "y" in the terminal.
