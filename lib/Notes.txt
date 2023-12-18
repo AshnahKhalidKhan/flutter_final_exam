@@ -3,3 +3,38 @@ SETTING UP FIREBASE:
 2. Click on "Add project".
 3. Give your project a name, and Continue.
 4. Enable Google Analytics for this project, and Continue.
+5. Select "Default Account for Firebase", and Create Project.
+6. Above "Add an app to get started", click on the Android icon.
+7. Open your flutter project, and go to android > app > build.gradle > Ctrl + F "applicationId" > Copy what is in quotes after applicationId e.g. com.example.flutter_final_exam
+8. Go back to browser, and paste in "Android package name" field.
+9. Go back to your flutter project, and open the terminal and write cd android > ./gradlew signingReport > Copy the SHA-1 code.
+10. Go back to browser, and paste in "Debug signing certificate SHA-1" field.
+11. Click Next.
+12. Download the google-services.json file given.
+13. Go back to your flutter project, and go to android > app, and paste your google-services.json file here.
+14. Go back to browser, click Next.
+15. Click Groovy (build.gradle).
+16. Go back to your flutter project, and go to android > build.gradle. In this file, add this line classpath "com.google.gms:google-services:4.4.0" here:
+    buildscript {
+        //...
+
+        dependencies {
+            //...
+            classpath "com.google.gms:google-services:4.4.0"
+        }    
+    }
+17. Now go to android > app > build.gradle. In this file, add this line id 'com.google.gms.google-services' here:
+    plugins {
+        //...
+        id 'com.google.gms.google-services'
+    }
+
+    And also add these lines here:
+    dependencies {
+        //...
+        implementation platform('com.google.firebase:firebase-bom:32.7.0')
+        implementation 'com.google.firebase:firebase-analytics'
+    }
+18. You will now get a pop up to sync classpaths/configurations using Java SDK. Click Sync.
+19. Go back to browser, click Next.
+20. Click Continue to console.
