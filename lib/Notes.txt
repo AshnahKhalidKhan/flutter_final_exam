@@ -44,17 +44,24 @@ SETTING UP FIREBASE:
 20. You will now get a pop up to sync classpaths/configurations using Java SDK. Click Sync.
 21. Go back to browser, click Next.
 22. Click Continue to console.
-23. Go back to your flutter project, and open the terminal and write flutter pub add cloud_firestore > flutter pub add firebase_core.
-
-flutter pub add firebase_auth
-
+23. Go back to your flutter project, and open the terminal and write flutter pub add cloud_firestore > flutter pub add firebase_core > flutterfire configure. Then select the Flutter project you want to configure, then for platform chooose android. A firebase_options.dart file will be created in lib if this runs successfully.
 24. Go to your lib > main.dart.
-25. Add firebase_core import to your main.dart file using this line: import 'package:firebase_core/firebase_core.dart';
+25. Add firebase_core import and firebase_options.dart import to your main.dart file using these lines:
+    import 'package:firebase_core/firebase_core.dart';
+    import 'package:flutter_final_exam/firebase_options.dart'; //Package ka naam dekh lena
+    //...
 26. Add these lines and "async" and "await" keywords in the void main() function:
     void main() async 
     {
         WidgetsFlutterBinding.ensureInitialized();
-        await Firebase.initializeApp();
+        await Firebase.initializeApp
+        (
+            options: DefaultFirebaseOptions.currentPlatform
+        );
         //...
     }
 27. Open the terminal and write flutter run. You will get some error related to enabling multidex support for flutter on the terminal, so type "y" in the terminal.
+
+
+
+flutter pub add firebase_auth
