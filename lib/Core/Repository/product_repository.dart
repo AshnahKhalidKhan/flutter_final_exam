@@ -36,6 +36,16 @@ class DataRepository
       return querySnapshot.docs
           .map((doc) => Products.fromJson(doc.data() as Map<String, dynamic>))
           .toList();
+    //   return firebaseFirestore.collection('products').snapshots().map((snapshot) 
+    //   {
+    //     return snapshot.docs.map((doc) {
+    //       final Map<String, dynamic> data = doc.data();
+
+    //       print(data);
+
+    //       return Products.fromMap(data);
+    //     }).toList();
+    // });
     }
     catch (e)
     {

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_final_exam/Pages/Question2.dart';
 import 'package:flutter_final_exam/Pages/SignIn.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget
     (
       title: 'Flutter Demo',
       // home: LoginPage(dataRepository: dataRepository)
-      home: SignIn()
+      // home: SignIn()
+      home: Question2()
     );
   }
 }
