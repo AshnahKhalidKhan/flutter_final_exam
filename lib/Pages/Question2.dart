@@ -80,8 +80,8 @@ class _Question2State extends State<Question2>
                           image: DecorationImage
                           (
                             //image: NetworkImage('https://www.cnet.com/a/img/resize/3f9bcdf57677ffcc221f679e18d635c81bfbd49a/hub/2020/12/08/14d95f63-3b9a-4b16-86b3-38d14baee2e5/airpod-max-black-background.png?auto=webp&fit=crop&height=1200&width=1200'),
-                            image: AssetImage('lib\\Assets\\airpod-max-black-background.jpg'),
-                            fit: BoxFit.cover,
+                            image: AssetImage('lib/Assets/airpod-max-black-background.jpg'),
+                            fit: BoxFit.fitWidth
                           ),
                           // borderRadius: BorderRadius.circular(20.0),
                         ),
