@@ -4,4 +4,47 @@ SETTING UP BloC:
     flutter pub add http
     flutter pub add flutter_bloc
     flutter pub add equatable
-2.
+2. Create the following folders and files in your lib folder:
+    BloC > data_bloc.dart, data_events.dart, data_states.dart
+    Core > network.dart
+    Core > Repository > data_repository.dart
+    Models > data_model.dart
+    Pages > FlutterFinalExam.dart
+3. In the data_model.dart file, paste your data model class. Make sure it has fromJson and toJson functions.
+4. Go to the network.dart file, and import your data_model.dart file.
+5. In network.dart, make these imports as well:
+    import 'dart:convert';
+    import 'package:http/http.dart' as http;
+
+
+
+6. In your data_repository.dart file, import your data_model.dart and your network.dart files.
+
+
+
+
+
+7. In your data_states.dart file, import the data_model.dart file.
+8. In your data_states.dart file, make this import:
+    import 'package:equatable/equatable.dart';
+9. Make abstarct class
+
+
+
+9. In your data_events.dart file, make this import:
+    import 'package:equatable/equatable.dart';
+
+
+
+10. In your data_bloc.dart file, import the data_model.dart, data_events.dart, data_states.dart and data_repository.dart files.
+11. In your data_bloc.dart file, make this import:
+    import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+12. Remove 'const' keywrdo from runApp(...) in main.dart file.
+13. Add something like "home: LoginPage(dataRepository: dataRepository)" to each page you make.
+
+
+
+
+13. Make page statfeyl widget. Add repositories there. Also require in keys, make databloc instance, initSate, Blocbuilder

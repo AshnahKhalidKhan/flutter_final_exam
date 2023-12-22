@@ -1,5 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:flutter_final_exam/Core/Repository/product_repository.dart';
+import 'package:flutter_final_exam/Core/network.dart';
+import 'package:flutter_final_exam/Pages/LoginPage.dart';
 import 'package:flutter_final_exam/firebase_options.dart';
 
 void main() async 
@@ -9,12 +13,21 @@ void main() async
   (
     options: DefaultFirebaseOptions.currentPlatform
   );
-  runApp(const MyApp());
+  final DataRepository dataRepository = DataRepository
+  (
+    dataAPIClient: DataAPIClient(httpClient: http.Client())
+  );
+  //runApp(const MyApp());
+  runApp
+  (
+    MyApp(dataRepository: dataRepository)
+  );
 }
 
 class MyApp extends StatelessWidget 
 {
-  const MyApp({super.key});
+  final DataRepository dataRepository;
+  const MyApp({super.key, required this.dataRepository});
 
   @override
   Widget build(BuildContext context) 
@@ -22,35 +35,7 @@ class MyApp extends StatelessWidget
     return MaterialApp
     (
       title: 'Flutter Demo',
-      theme: ThemeData
-      (
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget 
-{
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> 
-{
-  @override
-  Widget build(BuildContext context) 
-  {
-    return Scaffold(
-      appBar: AppBar
-      (
-        title: Text(widget.title),
-      ),
+      home: LoginPage(dataRepository: dataRepository)
     );
   }
 }
