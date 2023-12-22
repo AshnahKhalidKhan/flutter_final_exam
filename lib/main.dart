@@ -9,29 +9,51 @@ import 'package:flutter_final_exam/Core/network.dart';
 import 'package:flutter_final_exam/Pages/LoginPage.dart';
 import 'package:flutter_final_exam/firebase_options.dart';
 
-void main() async 
+// void main() async 
+// {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp
+//   (
+//     options: DefaultFirebaseOptions.currentPlatform
+//   );
+//   final DataRepository dataRepository = DataRepository
+//   (
+//     dataAPIClient: DataAPIClient(httpClient: http.Client()),
+//     firebaseFirestore: FirebaseFirestore.instance
+//   );
+//   //runApp(const MyApp());
+//   runApp
+//   (
+//     MyApp(dataRepository: dataRepository)
+//   );
+// }
+
+// class MyApp extends StatelessWidget 
+// {
+//   final DataRepository dataRepository;
+//   const MyApp({super.key, required this.dataRepository});
+
+//   @override
+//   Widget build(BuildContext context) 
+//   {
+//     return MaterialApp
+//     (
+//       title: 'Flutter Demo',
+//       // home: LoginPage(dataRepository: dataRepository)
+//       // home: SignIn()
+//       home: Question2()
+//     );
+//   }
+// }
+
+void main() 
 {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp
-  (
-    options: DefaultFirebaseOptions.currentPlatform
-  );
-  final DataRepository dataRepository = DataRepository
-  (
-    dataAPIClient: DataAPIClient(httpClient: http.Client()),
-    firebaseFirestore: FirebaseFirestore.instance
-  );
-  //runApp(const MyApp());
-  runApp
-  (
-    MyApp(dataRepository: dataRepository)
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget 
 {
-  final DataRepository dataRepository;
-  const MyApp({super.key, required this.dataRepository});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) 

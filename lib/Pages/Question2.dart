@@ -72,15 +72,16 @@ class _Question2State extends State<Question2>
                       Container
                       (
                         width: double.infinity,
-                        height: 200,
+                        // height: 200,
                         decoration: BoxDecoration
                         (
                           color: Color.fromARGB(255, 34, 34, 34),
                           borderRadius: BorderRadius.circular(30.0),
                           image: DecorationImage
                           (
-                            image: NetworkImage('https://www.cnet.com/a/img/resize/3f9bcdf57677ffcc221f679e18d635c81bfbd49a/hub/2020/12/08/14d95f63-3b9a-4b16-86b3-38d14baee2e5/airpod-max-black-background.png?auto=webp&fit=crop&height=1200&width=1200'),
-                            fit: BoxFit.fitHeight,
+                            //image: NetworkImage('https://www.cnet.com/a/img/resize/3f9bcdf57677ffcc221f679e18d635c81bfbd49a/hub/2020/12/08/14d95f63-3b9a-4b16-86b3-38d14baee2e5/airpod-max-black-background.png?auto=webp&fit=crop&height=1200&width=1200'),
+                            image: AssetImage('lib\\Assets\\airpod-max-black-background.jpg'),
+                            fit: BoxFit.cover,
                           ),
                           // borderRadius: BorderRadius.circular(20.0),
                         ),

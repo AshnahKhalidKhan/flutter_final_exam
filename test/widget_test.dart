@@ -40,11 +40,11 @@ import 'package:http/http.dart' as http;
 
 void main() async
 {
-  final DataRepository dataRepository = DataRepository
-  (
-    dataAPIClient: DataAPIClient(httpClient: http.Client()),
-    firebaseFirestore: FirebaseFirestore.instance
-  );
+  // final DataRepository dataRepository = DataRepository
+  // (
+  //   dataAPIClient: DataAPIClient(httpClient: http.Client()),
+  //   firebaseFirestore: FirebaseFirestore.instance
+  // );
 
   setUpAll(() => {loadAppFonts()});
   testGoldens
@@ -62,7 +62,7 @@ void main() async
       )
       ..addScenario
       (
-        widget: MyApp(dataRepository: dataRepository),
+        widget: MyApp(),
         name: 'First Test Page',
       );
 
@@ -76,7 +76,7 @@ void main() async
         )
       );
 
-      await screenMatchesGolden(tester, 'HELLLOOOOOOO_first_screenshot');
+      await screenMatchesGolden(tester, 'ui_sc.dart');
     }
   );
 }
