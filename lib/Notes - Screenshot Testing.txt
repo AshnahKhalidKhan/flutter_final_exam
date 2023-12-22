@@ -1,0 +1,16 @@
+SETTING UP SCREENSHOT TESTING:
+
+1. Open your flutter project, and open the terminal and run these commands:
+    flutter pub add golden_toolkit
+    flutter pub add equatable
+
+2. Open the pubspec.yaml file and navigate to dev_dependices and write this:
+    dev_dependencies:
+    //...
+    flutter_test:
+        sdk: flutter
+
+3. Open the terminal again and run this commands:
+    flutter pub get
+
+4.

@@ -4,3 +4,4 @@ SETTING UP BloC:
     flutter pub add http
     flutter pub add flutter_bloc
     flutter pub add equatable
+2.
