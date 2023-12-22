@@ -172,8 +172,9 @@ class _Question1State extends State<Question1>
                 child: Expanded(child: Image.network(obj.images.toString())),
               ),
             ),
-            title: Text(obj.title, style: TextStyle(),),
-            subtitle: ,
+            title: Text(obj.title, style: TextStyle(color: Colors.black, fontSize: 15.0),),
+            subtitle: Text(obj.day + " " + obj.month + " " + obj.year, style: TextStyle(color: Colors.grey, fontSize: 10.0),),
+            trailing: Text(obj.title, style: TextStyle(color: Colors.black, fontSize: 15.0),),,
           )
         );
       }
