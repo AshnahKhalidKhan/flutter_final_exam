@@ -1,0 +1,74 @@
+SETTING UP FIREBASE:
+
+Important links:
+- https://firebase.google.com/docs/flutter/setup?platform=ios
+- https://firebase.google.com/docs/cli#setup_update_cli
+- https://petercoding.com/firebase/2021/05/24/using-google-sign-in-with-firebase-in-flutter/
+- https://firebase.google.com/docs/cli#setup_update_cli
+
+1. Open browser, and go to https://console.firebase.google.com/
+2. Click on "Add project".
+3. Give your project a name, and Continue.
+4. Enable Google Analytics for this project, and Continue.
+5. Select "Default Account for Firebase", and Create Project.
+6. Above "Add an app to get started", click on the Android icon.
+7. Open your flutter project, and go to android > app > build.gradle > Ctrl + F "applicationId" > Copy what is in quotes after applicationId e.g. com.example.flutter_final_exam
+8. Go back to browser, and paste in "Android package name" field.
+9. Go back to your flutter project, and open the terminal and write cd android > ./gradlew signingReport > Copy the SHA-1 code.
+10. Go back to browser, and paste in "Debug signing certificate SHA-1" field.
+11. Click Next.
+12. Download the google-services.json file given.
+13. Go back to your flutter project, and go to android > app, and paste your google-services.json file here.
+14. Go back to browser, click Next.
+15. Click Groovy (build.gradle).
+16. Go back to your flutter project, and go to android > build.gradle. In this file, add this line classpath "com.google.gms:google-services:4.4.0" here:
+    buildscript {
+        //...
+
+        dependencies {
+            //...
+            classpath "com.google.gms:google-services:4.4.0"
+        }    
+    }
+17. Go back to browser, and open this link https://kotlinlang.org/docs/releases.html#release-details in another tab. Copy the latest version code of Kotlin on that website.
+18. Go back to your flutter project, and go to android > build.gradle. In this file, paste your Kotlin version here:
+    buildscript {
+        ext.kotlin_version = '<paste it here>'
+        //...  
+    }
+19. Now go to android > app > build.gradle. In this file, add this line id 'com.google.gms.google-services' here:
+    plugins {
+        //...
+        id 'com.google.gms.google-services'
+    }
+
+    And also add these lines here:
+    dependencies {
+        //...
+        implementation platform('com.google.firebase:firebase-bom:32.7.0')
+        implementation 'com.google.firebase:firebase-analytics'
+    }
+20. You will now get a pop up to sync classpaths/configurations using Java SDK. Click Sync.
+21. Go back to browser, click Next.
+22. Click Continue to console.
+23. Go back to your flutter project, and open the terminal and write flutter pub add cloud_firestore > flutter pub add firebase_core > cd.. > flutterfire configure. Then select the Flutter project you want to configure, then for platform chooose android. A firebase_options.dart file will be created in lib if this runs successfully.
+24. Go to your lib > main.dart.
+25. Add firebase_core import and firebase_options.dart import to your main.dart file using these lines:
+    import 'package:firebase_core/firebase_core.dart';
+    import 'package:flutter_final_exam/firebase_options.dart'; //Package ka naam dekh lena
+    //...
+26. Add these lines and "async" and "await" keywords in the void main() function:
+    void main() async 
+    {
+        WidgetsFlutterBinding.ensureInitialized();
+        await Firebase.initializeApp
+        (
+            options: DefaultFirebaseOptions.currentPlatform
+        );
+        //...
+    }
+27. Open the terminal and write flutter run. You will get some error related to enabling multidex support for flutter on the terminal, so type "y" in the terminal.
+28. Open the terminal and write flutter run, again. This time it should run properly.
+
+
+flutter pub add firebase_auth

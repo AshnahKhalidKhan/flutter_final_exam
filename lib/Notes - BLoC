@@ -1,0 +1,6 @@
+SETTING UP BloC:
+
+1. Open your flutter project, and open the terminal and run these commands:
+    flutter pub add http
+    flutter pub add flutter_bloc
+    flutter pub add equatable
