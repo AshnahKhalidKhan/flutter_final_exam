@@ -174,7 +174,7 @@ class _Question1State extends State<Question1>
             ),
             title: Text(obj.title, style: TextStyle(color: Colors.black, fontSize: 15.0),),
             subtitle: (obj.day == DateTime.now().day && obj.month == DateFormat('MMM').format(DateTime.now()) && obj.year == DataTime.now().year) ? "Today" :(Text(obj.day.toString() + " " + obj.month.toString() + " " + obj.year.toString(), style: TextStyle(color: Colors.grey, fontSize: 10.0),),
-            trailing: Text(obj.amount.toString(), style: TextStyle(color: Colors.black, fontSize: 15.0),),,
+            trailing: (obj.amount < 0) ? Text("\$-" + obj.amount.toString(), style: TextStyle(color: (obj.amount < 0) ? Colors.red : Colors.blue, fontSize: 15.0),) : Text("\$+" + obj.amount.toString(), style: TextStyle(color: (obj.amount < 0) ? Colors.red : Colors.blue, fontSize: 15.0),),
           )
         );
       }
