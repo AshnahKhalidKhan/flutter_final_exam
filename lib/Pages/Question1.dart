@@ -173,8 +173,8 @@ class _Question1State extends State<Question1>
               ),
             ),
             title: Text(obj.title, style: TextStyle(color: Colors.black, fontSize: 15.0),),
-            subtitle: Text(obj.day + " " + obj.month + " " + obj.year, style: TextStyle(color: Colors.grey, fontSize: 10.0),),
-            trailing: Text(obj.title, style: TextStyle(color: Colors.black, fontSize: 15.0),),,
+            subtitle: (obj.day == DateTime.now().day && obj.month == DateFormat('MMM').format(DateTime.now()) && obj.year == DataTime.now().year) ? "Today" :(Text(obj.day.toString() + " " + obj.month.toString() + " " + obj.year.toString(), style: TextStyle(color: Colors.grey, fontSize: 10.0),),
+            trailing: Text(obj.amount.toString(), style: TextStyle(color: Colors.black, fontSize: 15.0),),,
           )
         );
       }
