@@ -28,3 +28,55 @@
 //     expect(find.text('1'), findsOneWidget);
 //   });
 // }
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_final_exam/Core/Repository/product_repository.dart';
+import 'package:flutter_final_exam/Core/network.dart';
+import 'package:flutter_final_exam/main.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:http/http.dart' as http;
+
+void main() async
+{
+  final DataRepository dataRepository = DataRepository
+  (
+    dataAPIClient: DataAPIClient(httpClient: http.Client()),
+    firebaseFirestore: FirebaseFirestore.instance
+  );
+
+  setUpAll(() => {loadAppFonts()});
+  testGoldens
+  (
+    'DeviceBuilder - checkinggggg', //Sir ki file
+    (tester) async
+    {
+      final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios
+      (
+        devices:
+        [
+          Device.phone
+        ]
+      )
+      ..addScenario
+      (
+        widget: MyApp(dataRepository: dataRepository),
+        name: 'First Test Page',
+      );
+
+      await tester.pumpDeviceBuilder //app par device ko bana deta hai
+      (
+        builder,
+        wrapper: materialAppWrapper
+        (
+          theme: ThemeData.light(),
+          platform: TargetPlatform.android
+        )
+      );
+
+      await screenMatchesGolden(tester, 'HELLLOOOOOOO_first_screenshot');
+    }
+  );
+}

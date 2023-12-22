@@ -36,15 +36,16 @@ class _LoginPageState extends State<LoginPage>
 
   Widget build(BuildContext context) 
   {
-    return Scaffold(
+    return Scaffold
+    (
       appBar: AppBar
       (
         title: Text('Sub chal raha hai shukar...'),
       ),
       body: Center
       (
-        // child: _BlocBuilderBananayWalaFunction(_dataBloc),
         child: _BlocBuilderBananayWalaFunction()
+        // child: Text('Haha')
       )
     );
   }
@@ -92,6 +93,7 @@ class _LoginPageState extends State<LoginPage>
             leading: const Icon(Icons.person),
             title: Text(obj.title ?? '--'),
             subtitle: Text(obj.id.toString()),
+            trailing: CircleAvatar(backgroundColor: Colors.black, foregroundColor: Colors.red,),
           ),
         );
       }

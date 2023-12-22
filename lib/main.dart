@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_final_exam/Pages/SignIn.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_final_exam/Core/Repository/product_repository.dart';
@@ -15,7 +17,8 @@ void main() async
   );
   final DataRepository dataRepository = DataRepository
   (
-    dataAPIClient: DataAPIClient(httpClient: http.Client())
+    dataAPIClient: DataAPIClient(httpClient: http.Client()),
+    firebaseFirestore: FirebaseFirestore.instance
   );
   //runApp(const MyApp());
   runApp
@@ -35,7 +38,8 @@ class MyApp extends StatelessWidget
     return MaterialApp
     (
       title: 'Flutter Demo',
-      home: LoginPage(dataRepository: dataRepository)
+      // home: LoginPage(dataRepository: dataRepository)
+      home: SignIn()
     );
   }
 }

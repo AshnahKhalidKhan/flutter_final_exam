@@ -17,7 +17,7 @@ class DataAPIClient
 
   Future<List<Products>> fecthDataFutureFunctionNetworkFile() async
   {
-    final dataAPIResponse = await httpClient.get(Uri.parse(Endpoints.userUrl));
+    final dataAPIResponse = await httpClient.get(Uri.parse(Endpoints.productUrl));
 
     if (dataAPIResponse.statusCode != 200) 
     {

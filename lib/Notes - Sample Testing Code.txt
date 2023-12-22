@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_final_exam/Core/Repository/data_api_client.dart';
+import 'package:flutter_final_exam/Core/Repository/data_repository.dart';
+import 'package:flutter_final_exam/screens/login_page.dart';
+
+void main() async {
+  final DataRepository dataRepository = DataRepository(
+    dataAPIClient: DataAPIClient(httpClient: http.Client()),
+  );
+
+  setUpAll(() => loadAppFonts());
+  
+  testGoldens('LoginPage screenshot test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: [Device.phone],
+      )
+      ..addScenario(
+        widget: LoginPage(dataRepository: dataRepository),
+        name: 'Login Page',
+      );
+
+    await tester.pumpDeviceBuilder(
+      builder,
+      wrapper: materialAppWrapper(
+        theme: ThemeData.light(),
+        platform: TargetPlatform.android,
+      ),
+    );
+
+    await screenMatchesGolden(tester, 'login_page_screenshot');
+  });
+}
