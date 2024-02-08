@@ -1,0 +1,3 @@
+flutter pub add firebase_auth
+
+https://www.freecodecamp.org/news/user-authentication-flow-in-flutter-with-firebase-and-bloc/#:~:text=How%20to%20Implement%20the%20Authentication,on%20the%20user's%20authentication%20state.
